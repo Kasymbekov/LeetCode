@@ -1,9 +1,11 @@
 fun main(args: Array<String>) {
+    val s = "MCMXCIV"
     romanToInt("IV")
 }
 
+//Roman to Integer
+// IV(4) IX(9) XL(40) XC(90) CD(400) CM(900)
 fun romanToInt(s: String): Int {
-    // IV(4) IX(9) XL(40) XC(90) CD(400) CM(900)
     var result = 0
     var i = 0
     while (i < s.length) {
@@ -15,7 +17,7 @@ fun romanToInt(s: String): Int {
 //            "CD" -> result += 400
 //            "CM" -> result += 900
             "I" -> {
-                if (i != s.length -1 && s[i + 1] == 'V') {
+                if (i != s.length - 1 && s[i + 1] == 'V') {
                     result += 4
                     i++
                 } else if (s[i + 1] == 'X') {
@@ -25,6 +27,7 @@ fun romanToInt(s: String): Int {
                     result += 1
                 }
             }
+
             "V" -> result += 5
             "X" -> {
                 if (s[i + 1] == 'L') {
@@ -50,6 +53,7 @@ fun romanToInt(s: String): Int {
                     result += 100
                 }
             }
+
             "D" -> result += 500
             "M" -> result += 1000
         }
